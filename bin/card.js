@@ -1,46 +1,55 @@
 #!/usr/bin/env node
-// 👆 Used to tell Node.js that this is a CLI tool
 
-// Pull in our modules
-const chalk = require('chalk')
 const boxen = require('boxen')
+const chalk = require('chalk')
+const leftPad = require('left-pad')
 
-// Define options for Boxen
-const options = {
+const boxenOptions = {
   padding: 1,
   margin: 1,
-  borderStyle: 'round'
+  borderStyle: 'round',
 }
 
-// Text + chalk definitions
-const data = {
-  name: chalk.white('Tierney Cyren /'),
-  handle: chalk.cyan('bitandbang'),
-  work: chalk.white('Senior Cloud Developer Advocate at Microsoft'),
-  twitter: chalk.cyan('https://twitter.com/bitandbang'),
-  github: chalk.cyan('https://github.com/bnb'),
-  linkedin: chalk.cyan('https://linkedin.com/in/bitandbang'),
-  web: chalk.cyan('https://bnb.im'),
-  npx: chalk.white('npx bitandbang'),
-  labelWork: chalk.white.bold('      Work:'),
-  labelTwitter: chalk.white.bold('   Twitter:'),
-  labelGitHub: chalk.white.bold('    GitHub:'),
-  labelLinkedIn: chalk.white.bold('  LinkedIn:'),
-  labelWeb: chalk.white.bold('       Web:'),
-  labelCard: chalk.white.bold('      Card:')
-}
-
-// Actual strings we're going to output
 const newline = '\n'
-const heading = `${data.name} ${data.handle}`
-const working = `${data.labelWork}  ${data.work}`
-const twittering = `${data.labelTwitter}  ${data.twitter}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-const webing = `${data.labelWeb}  ${data.web}`
-const carding = `${data.labelCard}  ${data.npx}`
+const formatLabel = value => chalk.white.bold(leftPad(value, 12) + ':')
+const formatLink = value => chalk.cyan(value)
 
-// Put all our output together into a single variable so we can use boxen effectively
-const output = heading + newline + newline + working + newline + twittering + newline + githubing + newline + linkedining + newline + webing + newline + newline + carding
+const data = [
+  {
+    label: chalk.white.bold('Michael Stramel'),
+    value: '',
+  },
+  {
+    label: '',
+    value:
+      chalk.white('Software Engineer') +
+      chalk.gray(' @ Coolfire Solutions') +
+      newline,
+  },
+  {
+    label: formatLabel('Twitter'),
+    value: formatLink('https://twitter.com/stramel89'),
+  },
+  {
+    label: formatLabel('GitHub'),
+    value: formatLink('https://github.com/stramel'),
+  },
+  {
+    label: formatLabel('LinkedIn'),
+    value: formatLink('https://linkedin.com/in/stramel'),
+  },
+  {
+    label: formatLabel('Website'),
+    value: 'COMING SOON',
+  },
+  {
+    label: newline + chalk.cyan(leftPad('$', 13)),
+    value: chalk.white('npx stramel'),
+  },
+]
 
-console.log(chalk.green(boxen(output, options)))
+const output = data
+  .map(({ label, value }) => `${label}${label && ' '}${value}`)
+  .join(newline)
+
+console.log(chalk.green(boxen(output, boxenOptions)))
