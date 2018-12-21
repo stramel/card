@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Micahel Stramel <m.stramel89@gmail.com>",
+  "author": "Michael Stramel <m.stramel89@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "boxen": "^2.1.0",
