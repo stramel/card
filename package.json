@@ -1,7 +1,7 @@
 {
-  "name": "stramel",
+  "name": "@stramel/card",
   "version": "1.0.0",
-  "description": "A personal card for Michael Stramel (@stramel)",
+  "description": "A personal card for Michael Stramel (@stramel89)",
   "main": "/bin/card.js",
   "bin": {
     "stramel": "./bin/card.js"

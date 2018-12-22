@@ -51,7 +51,7 @@ const data = [
   },
   {
     label: newline + chalk.cyan(leftPad('$', 13)),
-    value: chalk.white('npx stramel'),
+    value: chalk.white('npx @stramel/card'),
   },
 ]
 
