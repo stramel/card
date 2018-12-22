@@ -8,7 +8,7 @@
   },
   "files": [
     "bin/card.js",
-    "bin/output.js"
+    "bin/output"
   ],
   "repository": {
     "type": "git",
