@@ -60,6 +60,6 @@ const output = data
   .join(newline)
 
 fs.writeFileSync(
-  path.join(__dirname, 'bin/output'),
+  path.join(__dirname, 'pkg/dist-node/output'),
   chalk.green(boxen(output, boxenOptions)),
 )
